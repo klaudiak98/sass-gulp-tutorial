@@ -34,3 +34,40 @@ a {
 ```
 @import 'variables';
 ```
+
+**nested rules**
+
+.scss:
+```
+.card {
+    display: block;
+
+    .card-title {
+        padding-bottom: $base-padding;
+    }
+
+    .card-body {
+        font-size: $base-font-size;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+```
+
+.css:
+```
+.card {
+  display: block;
+}
+.card .card-title {
+  padding-bottom: 0.75rem;
+}
+.card .card-body {
+  font-size: 1rem;
+}
+.card .card-body a {
+  text-decoration: underline;
+}
+```
