@@ -26,3 +26,11 @@ a {
     color: $secondary;
 }
 ```
+**partials & @import**
+
+1. create new file: _variables.scss
+
+2. add to main.scss:
+```
+@import 'variables';
+```
