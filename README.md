@@ -71,3 +71,26 @@ a {
   text-decoration: underline;
 }
 ```
+
+**math**
+
+multiplying:
+```
+$font-size-lg: $base-font-size * 1.5;
+```
+
+division:
+
+~~border-radius: $base-border-radius / 4;~~
+```
+@use 'sass:math';
+
+border-radius: math.div($base-border-radius, 4);
+```
+
+debugging:
+```
+@debug math.div(10, 3);
+```
+_result:_
+>src/scss/components/_card.scss:25 Debug: 3.3333333333
