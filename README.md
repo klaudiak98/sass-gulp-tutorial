@@ -94,3 +94,15 @@ debugging:
 ```
 _result:_
 >src/scss/components/_card.scss:25 Debug: 3.3333333333
+
+**maps**
+```
+$map-name (
+  "key": value
+)
+```
+list of functions:
+* map-get($map-name, "key");
+* map-has-key($map-name, "key");
+* map-remove($map-name, "key");
+* map-merge($map-name, ("key": value));
