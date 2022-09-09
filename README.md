@@ -119,3 +119,11 @@ list of functions:
 
 }
 ```
+
+**conditionals**
+```
+@if (condition1 and condition2) {
+
+} @else {
+
+}
