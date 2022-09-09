@@ -178,3 +178,22 @@ _mixin can use variable_
 ```
 
 * lighten(color, percent) - SASS built-in function, takes and retuns color
+
+
+**functions**
+
+_return value of property_
+
+* complement(color) - SASS built-in function
+
+```
+@function func-name($var) {
+    $complement: complement($var);
+    $ligth-complement: lighten($complement);
+    @return $ligth-complement;
+}
+
+.new-class {
+  color: func-name(#000);
+}
+```
