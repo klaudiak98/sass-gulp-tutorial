@@ -127,3 +127,19 @@ list of functions:
 } @else {
 
 }
+```
+
+**parent selectors**
+```
+.class-name {
+        &:selector {
+        
+        }
+}
+
+it means:
+
+.class-name:selector {
+    
+}
+```
