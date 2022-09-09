@@ -106,3 +106,16 @@ list of functions:
 * map-has-key($map-name, "key");
 * map-remove($map-name, "key");
 * map-merge($map-name, ("key": value));
+
+**loops**
+```
+@each $key, $val in $map-name {
+
+}
+```
+
+```
+@for $i from 1 through 9 {
+
+}
+```
