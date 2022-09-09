@@ -143,3 +143,38 @@ it means:
     
 }
 ```
+
+**mixins**
+
+_it can groups many of properties and values which can be simple reuse_
+
+```
+@mixin mixin-name() {
+  property1: value1;
+  property2: value2;
+}
+
+.new-class {
+  @include mixin-name();
+  property3: value3;
+}
+```
+
+
+_mixin can use variable_
+```
+@mixin mixin-name($var: default_value) {
+  color: $var;
+}
+
+.new-class {
+  @include mixin-name(#fff);
+}
+
+// use default_value:
+.new-class-without-variable {
+  @include mixin-name;
+}
+```
+
+* lighten(color, percent) - SASS built-in function, takes and retuns color
