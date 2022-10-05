@@ -249,3 +249,24 @@ secound option - without .flex-layout in CSS file:
     padding: $base-padding $base-padding * 2;
 }
 ```
+
+
+## Purging CSS
+install plugin:
+> npm i gulp-purgecss --save-dev
+
+edit gulpfile.js:
+```
+const purgecss = require('gulp-purgecss')
+
+function buildStyles() {
+    return src('src/scss/**/*.scss')
+        .pipe(sass())
+        .pipe(purgecss({content: ['src/*.html']}))
+        .pipe(dest('src/css'))
+}
+
+function watchTask() {
+    watch(['src/scss/**/*.scss', 'src/*.html'], buildStyles)
+}
+```
