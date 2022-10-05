@@ -1,9 +1,11 @@
 # SASS with gulp.js
+
 _SASS with gulp.js - based on YT tutorial: "SASS Tutorial (build your own CSS library)" by The Net Ninja_
 
 Source: [YouTube, The Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jxJX7vojNVK-o8ubDZEcNb)
 
 ## Run the project
+
 > npm init -y
 
 > npm i gulp gulp-sass sass --save-dev
@@ -11,7 +13,9 @@ Source: [YouTube, The Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGk
 > npm run gulp
 
 ## SASS - notes
+
 **variables**
+
 ```
 $primary: #326dee;
 $secondary: #1ac888;
@@ -26,11 +30,13 @@ a {
     color: $secondary;
 }
 ```
+
 **partials & @import**
 
-1. create new file: _variables.scss
+1. create new file: \_variables.scss
 
 2. add to main.scss:
+
 ```
 @import 'variables';
 ```
@@ -38,6 +44,7 @@ a {
 **nested rules**
 
 .scss:
+
 ```
 .card {
     display: block;
@@ -57,6 +64,7 @@ a {
 ```
 
 .css:
+
 ```
 .card {
   display: block;
@@ -75,6 +83,7 @@ a {
 **math**
 
 multiplying:
+
 ```
 $font-size-lg: $base-font-size * 1.5;
 ```
@@ -82,6 +91,7 @@ $font-size-lg: $base-font-size * 1.5;
 division:
 
 ~~border-radius: $base-border-radius / 4;~~
+
 ```
 @use 'sass:math';
 
@@ -89,25 +99,32 @@ border-radius: math.div($base-border-radius, 4);
 ```
 
 debugging:
+
 ```
 @debug math.div(10, 3);
 ```
+
 _result:_
->src/scss/components/_card.scss:25 Debug: 3.3333333333
+
+> src/scss/components/\_card.scss:25 Debug: 3.3333333333
 
 **maps**
+
 ```
 $map-name (
   "key": value
 )
 ```
+
 list of functions:
-* map-get($map-name, "key");
-* map-has-key($map-name, "key");
-* map-remove($map-name, "key");
-* map-merge($map-name, ("key": value));
+
+- map-get($map-name, "key");
+- map-has-key($map-name, "key");
+- map-remove($map-name, "key");
+- map-merge($map-name, ("key": value));
 
 **loops**
+
 ```
 @each $key, $val in $map-name {
 
@@ -121,6 +138,7 @@ list of functions:
 ```
 
 **conditionals**
+
 ```
 @if (condition1 and condition2) {
 
@@ -130,17 +148,18 @@ list of functions:
 ```
 
 **parent selectors**
+
 ```
 .class-name {
         &:selector {
-        
+
         }
 }
 
 it means:
 
 .class-name:selector {
-    
+
 }
 ```
 
@@ -160,8 +179,8 @@ _it can groups many of properties and values which can be simple reuse_
 }
 ```
 
-
 _mixin can use variable_
+
 ```
 @mixin mixin-name($var: default_value) {
   color: $var;
@@ -177,14 +196,13 @@ _mixin can use variable_
 }
 ```
 
-* lighten(color, percent) - SASS built-in function, takes and retuns color
-
+- lighten(color, percent) - SASS built-in function, takes and retuns color
 
 **functions**
 
 _return value of property_
 
-* complement(color) - SASS built-in function
+- complement(color) - SASS built-in function
 
 ```
 @function func-name($var) {
@@ -195,5 +213,39 @@ _return value of property_
 
 .new-class {
   color: func-name(#000);
+}
+```
+
+**extend**
+
+_reuse classes_
+
+```
+.flex-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    @extend .flex-layout;
+
+    padding: $base-padding $base-padding * 2;
+}
+```
+
+secound option - without .flex-layout in CSS file:
+
+```
+%flex-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    @extend %flex-layout;
+
+    padding: $base-padding $base-padding * 2;
 }
 ```
